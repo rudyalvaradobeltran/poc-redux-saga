@@ -1,27 +1,18 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Button from '../../atoms/Button'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 
-const UserTemplate = () => {
-  const [loading, setLoading] = useState(false)
-  const handleClick = () => {
-    setLoading(true)
-    setTimeout(() => {
-      setLoading(false)
-    }, 1000)
-  }
+const UserTemplate = ({ handleGetUserClick, loading }) => {
   return (
-    <div>
-      <Button 
-        handleClick={handleClick}
-        sendIcon={<ArrowForwardIcon />}
-        loading={loading}
-        loadingPosition="end"
-        variant="contained"
-        text="Get user"
-        classes={null}
-      /> 
-    </div>
+    <Button 
+      handleClick={handleGetUserClick}
+      sendIcon={<ArrowForwardIcon />}
+      loading={loading}
+      loadingPosition="end"
+      variant="contained"
+      text="Get user"
+      classes={null}
+    />
   )
 }
 

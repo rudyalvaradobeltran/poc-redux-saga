@@ -7,7 +7,8 @@ export class AppController {
   constructor(private readonly appService: AppService) {}
 
   @Get('/user')
-  getUser(): User {
+  async getUser(): Promise<User> {
+    await new Promise(res => setTimeout(res, 2000));
     const user = new User();
     user._id = 'b5b59131-a8f3-4591-a576-c0422decea0d'
     user.name = 'John';

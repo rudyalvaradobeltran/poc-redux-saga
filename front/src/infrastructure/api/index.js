@@ -16,16 +16,17 @@ const processResponse = (result) => {
 }
 
 const processesRequest = async (request, method, params, optionalsHeaders) => {
-  const response = fetch(request, {
+  const init = {
     method,
-    headers: optionalsHeaders ? { ...headers, ...optionalsHeaders } : headers,
-    ...(params ? { body: JSON.stringify({ params }) } : {}),
-  })
+    headers: optionalsHeaders ? { ...headers, ...optionalsHeaders } : headers
+  }
+  if (method !== 'GET') init.body = JSON.stringify({ params })
+  const response = fetch(request, init)
   return processResponse(response)
 }
 
 const api = (urlBase) => ({
-  async get(endpoint, params = null, optionalsHeaders = null) {
+  async get(endpoint, params = null, optionalsHeaders) {
     return processesRequest(
       `${urlBase}${endpoint}`,
       'GET',
