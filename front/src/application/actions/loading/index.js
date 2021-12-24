@@ -2,7 +2,6 @@ import { createSlice, createAction } from '@reduxjs/toolkit';
 import initialState from '../../../domain/ui/loading';
 
 function setLoading(state, action) {
-  console.log(state, action)
   const { loading } = action.payload;
   state.loading = loading;
 }

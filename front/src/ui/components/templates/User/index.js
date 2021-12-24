@@ -1,18 +1,27 @@
 import React from 'react'
-import Button from '../../atoms/Button'
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
+import Box from '@mui/material/Box'
+import Container from '@mui/material/Container'
+import Grid from '@mui/material/Grid'
+import useStyles from './styles'
 
-const UserTemplate = ({ handleGetUserClick, loading }) => {
+const UserTemplate = ({ children }) => {
+  const classes = useStyles()
+
   return (
-    <Button 
-      handleClick={handleGetUserClick}
-      sendIcon={<ArrowForwardIcon />}
-      loading={loading}
-      loadingPosition="end"
-      variant="contained"
-      text="Get user"
-      classes={null}
-    />
+    <Container className={classes.root} maxWidth="xl">
+      <Box sx={{ bgcolor: '#fff', height: '100vh' }}>
+        <Grid
+          className={classes.grid}
+          container
+          spacing={0}
+          direction="column"
+          alignItems="center"
+          justifyContent="center"
+        >
+          {children}
+        </Grid>
+      </Box>
+    </Container>
   )
 }
 

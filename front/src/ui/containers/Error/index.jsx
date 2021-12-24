@@ -1,11 +1,11 @@
 import React from 'react'
 
-const StepUser = () => {
+const Error = () => {
   return (
     <div>
-      2
+      Error
     </div>
   )
 }
 
-export default StepUser
+export default Error

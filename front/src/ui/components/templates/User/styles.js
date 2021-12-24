@@ -1,10 +1,12 @@
 import { makeStyles } from '@mui/styles'
 
 const useStyles = makeStyles({
-  root: {
-    backgroundColor: '#f28fce',
-    minHeight: '100vh'
+  container: {
+    backgroundColor: '#fff'
   },
+  grid: {
+    minHeight: '100vh'
+  }
 })
 
 export default useStyles

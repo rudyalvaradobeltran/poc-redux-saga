@@ -25,7 +25,6 @@ export function* fetchUser(params) {
       yield put(userActions.userError())
     }
   } catch(error) {
-    console.log(error)
     yield all([
       put(userActions.userError())
     ]);
